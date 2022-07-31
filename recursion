@@ -70,3 +70,49 @@ int main()
     cout<<fib(n);
 }
 
+q2 nCr combination formula -----------------------------------------------------
+
+Iterative
+
+#include<iostream>
+using namespace std;
+int fact(int x)
+{
+    int m=1;
+    for(int i=x;i>=1;i--)
+    m=m*i;
+    return m;
+    
+}
+int c(int n,int r)
+{
+    int t1,t2,t3;
+    t1= fact(n);
+    t2 = fact(r);
+    t3= fact(n-r);
+    
+    return t1/(t2*t3);
+}
+int main()
+{
+    int n=4,r=2;
+    cout<<c(n,r)<<endl;
+}
+
+recursive--------------------
+
+#include<iostream>
+using namespace std;
+
+int c(int n,int r)
+{
+    if(r==0||r==n)
+        return 1;
+    else
+        return c(n-1,r-1)+c(n-1,r);
+}
+int main()
+{
+    int n=4,r=2;
+    cout<<c(n,r)<<endl;
+}
