@@ -1,0 +1,378 @@
+Problem
+Chef has two variables 
+�
+X and 
+�
+Y. He wants to find out whether the variables satisfy the equation:
+
+�
+4
++
+4
+⋅
+�
+2
+=
+4
+⋅
+�
+2
+⋅
+�
+X 
+4
+ +4⋅Y 
+2
+ =4⋅X 
+2
+ ⋅Y
+Input Format
+The first line of input will contain a single integer 
+�
+T, denoting the number of test cases.
+Each test case consists of two integers 
+�
+X and 
+�
+Y, as mentioned in statement.
+Output Format
+For each test case, output YES if the variables 
+�
+X and 
+�
+Y satisfy the given equation, NO otherwise.
+
+You may print each character in uppercase or lowercase. For example, Yes, YES, yes, and YeS are all considered the same.
+
+Constraints
+1
+≤
+�
+≤
+1000
+1≤T≤1000
+1
+≤
+�
+≤
+1
+0
+9
+1≤X≤10 
+9
+ 
+1
+≤
+�
+≤
+1
+0
+18
+1≤Y≤10 
+18
+ 
+Sample 1:
+Input
+Output
+5
+2 2
+4 4
+3 6
+8 32
+200000000 20000000000000000
+YES
+NO
+NO
+YES
+YES
+Explanation:
+Test case 
+1
+1: Given 
+�
+=
+2
+X=2 and 
+�
+=
+2
+Y=2. Here, 
+2
+4
++
+4
+⋅
+2
+2
+=
+4
+⋅
+2
+2
+⋅
+2
+=
+32
+2 
+4
+ +4⋅2 
+2
+ =4⋅2 
+2
+ ⋅2=32.
+
+Test case 
+2
+2: Given 
+�
+=
+4
+X=4 and 
+�
+=
+4
+Y=4. Here, 
+4
+4
++
+4
+⋅
+4
+2
+=
+320
+4 
+4
+ +4⋅4 
+2
+ =320 which is not equal to 
+4
+⋅
+4
+2
+⋅
+4
+=
+256
+4⋅4 
+2
+ ⋅4=256.
+
+Test case 
+3
+3: Given 
+�
+=
+3
+X=3 and 
+�
+=
+6
+Y=6. Here, 
+3
+4
++
+4
+⋅
+6
+2
+=
+225
+3 
+4
+ +4⋅6 
+2
+ =225 which is not equal to 
+4
+⋅
+3
+2
+⋅
+6
+=
+216
+4⋅3 
+2
+ ⋅6=216.
+
+Test case 
+4
+4: Given 
+�
+=
+8
+X=8 and 
+�
+=
+32
+Y=32. Here, 
+8
+4
++
+4
+⋅
+3
+2
+2
+=
+8192
+8 
+4
+ +4⋅32 
+2
+ =8192 which is equal to 
+4
+⋅
+8
+2
+⋅
+32
+=
+8192
+4⋅8 
+2
+ ⋅32=8192.
+
+Test case 
+5
+5: Given 
+�
+=
+2
+⋅
+1
+0
+8
+X=2⋅10 
+8
+  and 
+�
+=
+2
+⋅
+1
+0
+16
+Y=2⋅10 
+16
+ . Here, 
+(
+2
+⋅
+1
+0
+8
+)
+4
++
+4
+⋅
+(
+2
+⋅
+1
+0
+16
+)
+2
+=
+32
+⋅
+1
+0
+32
+(2⋅10 
+8
+ ) 
+4
+ +4⋅(2⋅10 
+16
+ ) 
+2
+ =32⋅10 
+32
+  which is equal to 
+4
+⋅
+(
+2
+⋅
+1
+0
+8
+)
+2
+⋅
+(
+2
+⋅
+1
+0
+16
+)
+=
+32
+⋅
+1
+0
+32
+4⋅(2⋅10 
+8
+ ) 
+2
+ ⋅(2⋅10 
+16
+ )=32⋅10 
+32
+ .
+
+
+
+
+
+
+
+
+
+Code:
+#include <iostream>
+using namespace std;
+int power(int n1,int n2);
+int main() {
+	int t;
+	cin>>t;
+	
+	while(t>0)
+	{
+	    int x,y;
+	    cin>>x>>y;
+	    
+	    int term1,term2,lhs,rhs;
+	    
+	    term1 = power(x,4);
+	    term2 = (4*(power(y,2)));
+	    lhs = term1+term2;
+	    rhs = (4*((power(x,2))*y));
+	    if(lhs=rhs)
+	    {
+	        cout<<"YES"<<endl;
+	    }
+	    else{
+	        cout<<"NO"<<endl;
+	    }
+	    t--;
+	}
+	return 0;
+}
+
+int power(int base, int a)
+{
+    if(a!=0)
+    {
+        return base*power(base,a-1);
+    }
+    else
+    {
+        return 1;
+    }
+}
