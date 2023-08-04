@@ -1,13 +1,81 @@
-Set matrix zeroes
+Question : Set matrix zeroes
 
-Brute force approach
 
-Better approach- 
+Brute force approach-------------------------------
+
+Traverse throught the entire matrix and find zeroes and convert the row and col of that element to -1. Then another tarversal for converting
+the -1 part to zero.
+-1 because if we'll declare them zero in the first place, it will ruin the other calculation of zeroes.
+
+T.C. - (nxm)(n+m) + (nxm) ~ n^3
+S.C- O(1)
+
+
+Code:
+class Solution {
+public:
+
+    int row(int i)
+    {
+       for(int j=0;j<n;j++)
+       {
+          if(matrix[i][j]!=0)
+           matrix[i][j]=-1;
+       }
+    }
+    int cal(int j)
+    {
+       for(int i=0;i<m;i++)
+       {
+           if(matrix[i][j]!=0)
+           matrix[i][j]=-1;
+       }
+    }
+  
+    
+    void setZeroes(vector<vector<int>>&matrix) {
+          int m= matrix.size();
+          int n=matrix[0].size();
+
+          for(int i=0;i<m;i++)
+          {  
+               for(int j=0;j<n;j++)
+               {
+                   if(matrix[i][j]==0){
+                      row(i);
+                      col(j);
+                   }
+               }
+
+          }   
+          for(int i=0;i<m;i++){
+
+          for(int j=0;j<n;j++){
+             if(martrix[i][j]==-1){
+                matrix[i][j]=0;
+             }
+          }
+
+          }
+                
+    }
+
+};
+
+
+
+
+Better approach----------------------------------------------
 
 Approach- In brute force, we were traversing through the whole row and column where we encountered 0 and marking it as -1. Then again traversing 
 to make the -1 to 0. Which was taking the extra time.
 In this better case, we would have an row and col array with 0s intially. As we encounter 0, the row and col index of that element where 0 existed
 will be marked as 1. Then at last, we'll change the 1 marked array to 0 in the given orignal matrix.
+
+T.C. = (nxm): traversal
+        nxm: traversal
+T.C. = 2(nxm)
+S.C. = O(n)+O(m)  //Because of the img array 
 
 Code:
 #include <bits/stdc++.h> 
@@ -41,7 +109,23 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 }
 
 
-Optimal approach fucking hell
+Optimal approach fucking hell---------------------------------------------------
+
+Better approach was taking more space because of the img array formed, in this approach we'll assume the img array to be matrix's 1 row
+and 1st col.
+
+1. Traverse through the matrix and find the element which is 0, mark them in the img array( 1st row and 1st col of matrix)
+   img row --- matrix[0][..]
+   img col --- matrix[..][0]
+2. Now, we can't take whole row 1 and whole col 1 because they both have a common element i.e. matrix[0][0].
+   So, the matrix[0][0] will be used in the row part and not in the col part. 
+   To tackle the col part we'll aarange a col0 variable which will do the job.
+3. First the col part will be tackled cause it can corrupt the data.
+
+   T.C. : O(nxm)
+   S.C. : O(1)
+
+
 
 Code:
 class Solution {
