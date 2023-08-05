@@ -1,13 +1,33 @@
 Question: Pascal Traingle 
 
 
+Three cases can be formed in this question -----------------------
+
+First Case: Given the row and col of the pascal triangle and print the element.
+
+Input: r=5, c=3
+Output: 6
+
+
+
+Third Case: Optimal Approach of printing all elements of the pascal traingle in the form of a list.
+
+Input: Number of rows (ex-5)
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+T.C.: O(nxn) , n: number of rows
+S.C. : O(1)
+
+Approach: Loop for traversing row by row and finding the pascal value for each row and adding it to the resulting list.
+          The function generateRow will input the row and evaluate the pascal element for that particular row and group them.
+
 class Solution {
 public:
     vector<int> generateRow(int row){
         long long ans = 1;
         vector<int> ansRow;
-        ansRow.push_back(1);
-        for(int col=1;col<row;col++){
+        ansRow.push_back(1);                            
+        for(int col=1;col<row;col++){                   //1 se start kyunki 1 col0 ka fixed h
             ans = ans*(row-col);
             ans = ans/col;
             ansRow.push_back(ans);
