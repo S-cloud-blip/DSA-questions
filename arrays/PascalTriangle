@@ -21,6 +21,8 @@ functionNCR(int n, int r){
 
 
 Second Case: Print the elements of the row passed--------------
+T.C. : O(n)
+S.C. : O(1)
 
 Code:
 
