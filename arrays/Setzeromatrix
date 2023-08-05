@@ -170,7 +170,7 @@ public:
        //The edge cases- The first element of the matrix which was not evaluated and the col0 part
 
        if(matrix[0][0]==0){
-           for(int j=0;j<n;j++){//kyunki row toh chedni nhi, changes toh row mein h ;)
+           for(int j=0;j<n;j++){//kyunki row toh chedni nhi, changes toh col mein h ;)
                 matrix[0][j]=0;
            }
        } 
