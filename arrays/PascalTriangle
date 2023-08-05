@@ -7,8 +7,31 @@ First Case: Given the row and col of the pascal triangle and print the element.
 
 Input: r=5, c=3
 Output: 6
+T.C. : O(r) - r: col of pascal triangle passes
+
+Formula used - NcR where N=Row-1 and R=col-1
+
+functionNCR(int n, int r){
+   int ans=1;
+   for(int i=0;i<r;i++){
+       ans = ans*(n-i);
+       ans = ans/(i+1);
+   }
+}
 
 
+Second Case: Print the elements of the row passed--------------
+
+Code:
+
+int ans = 1;
+print(ans)
+
+for(int col=0;col<row;col++){
+    ans = ans*(row-col);
+    ans = ans/col;
+    print(ans);
+}
 
 Third Case: Optimal Approach of printing all elements of the pascal traingle in the form of a list.
 
