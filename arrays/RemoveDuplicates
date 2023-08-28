@@ -1,16 +1,38 @@
 Brute Force Approach------------
 
+Takeaway: Using sets, sets stores elements that are unique.
+T.C. - O(n)+O(nlogn)
+S.C. - O(n) n being the size of the set
 
+Code:
+
+set<int> st;
+for(int i=0;i<arr.size();i++)            //THE set will now have unique elements of the array
+{ 
+    st.insert(arr[i]);                 //O(LOGN)
+}
+int index = 0;
+for(auto it:st){
+    arr[index]= it;
+    index++;
+}
+
+return arr.size();
 
 Optimal Approach---------------------
 
 Takeaway: The first element of the object will be in the unique list because the array is sorted.
 The "i" will be fixed and incremented only if an unique element is found. The "j" part will traverse through the aray starting from one.
-As, we traverse through the array if the element is unique will be checked by the if statement. If the element is unique 
+As, we traverse through the array if the element is unique will be checked by the if statement. If the element is unique, increment i and 
+replace the element with index i+1 to the element with index j. The array with i index will be the resulatant here. And the array size 
+would be i+1, which will be the answer.
 
 
 T.C.: O(N) - N being the size of an array 
 S.C.: O(1)
+
+Code:
+
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
