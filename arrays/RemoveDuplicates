@@ -1,9 +1,22 @@
+Brute Force Approach------------
+
+
+
+Optimal Approach---------------------
+
+Takeaway: The first element of the object will be in the unique list because the array is sorted.
+The "i" will be fixed and incremented only if an unique element is found. The "j" part will traverse through the aray starting from one.
+As, we traverse through the array if the element is unique will be checked by the if statement. If the element is unique 
+
+
+T.C.: O(N) - N being the size of an array 
+S.C.: O(1)
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         
         int i=0;
-        for(int j=0;j<nums.size();j++){
+        for(int j=1;j<nums.size();j++){
             if(nums[j]!=nums[i]){
                   nums[i+1] = nums[j];
                   i++;
