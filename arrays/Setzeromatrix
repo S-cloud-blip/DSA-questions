@@ -69,18 +69,17 @@ Better approach----------------------------------------------
 
 Approach- In brute force, we were traversing through the whole row and column where we encountered 0 and marking it as -1. Then again traversing 
 to make the -1 to 0. Which was taking the extra time.
-In this better case, we would have an row and col array with 0s intially. As we encounter 0, the row and col index of that element where 0 existed
+In this better case, we would have an img row and col array outside the matrice with 0s intially. As we encounter 0, the row and col index of that element where 0 existed
 will be marked as 1. Then at last, we'll change the 1 marked array to 0 in the given orignal matrix.
 
 T.C. = (nxm): traversal
-        nxm: traversal
 T.C. = O(2(nxm))
 S.C. = O(n)+O(m)  //Because of the img array 
 
 Code:
 #include <bits/stdc++.h> 
 vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
-	    int row[n] = {0};      //Img array for row i.e. {0,0,0,0}
+      int row[n] = {0};      //Img array for row i.e. {0,0,0,0}
       int col[m] = {0};      //Img array for col i.e. {0,0,0,0}
 
         for(int i=0;i<n;i++)            //iteration through matrix and detecting 0s
