@@ -74,7 +74,7 @@ will be marked as 1. Then at last, we'll change the 1 marked array to 0 in the g
 
 T.C. = (nxm): traversal
         nxm: traversal
-T.C. = 2(nxm)
+T.C. = O(2(nxm))
 S.C. = O(n)+O(m)  //Because of the img array 
 
 Code:
@@ -122,7 +122,7 @@ and 1st col.
    To tackle the col part we'll aarange a col0 variable which will do the job.
 3. First the col part will be tackled cause it can corrupt the data.
 
-   T.C. : O(nxm)
+   T.C. : O(nxm) ~ 0(2xnxm)+0(n)+O(m)
    S.C. : O(1)
 
 
